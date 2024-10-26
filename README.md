@@ -193,6 +193,22 @@ The following steps outline the setup process for defining regions, cycles, and 
    ```bash
    curl -X GET http://localhost:3000/assignments/1/1
    ```
+### Step 6: Clear the Cache (Optional)
+  - Clear the Redis cache to remove any stored assignment data, ensuring that the next request retrieves fresh data directly from the database. This step is particularly useful in testing to confirm how the system behaves without cached entries.
+
+1. Open the Redis CLI:
+   ```bash
+   redis-cli
+   ```
+2. Clear all cached keys:
+   ```bash
+   FLUSHALL
+   ```
+3. Exit the Redis CLI:
+   ```bash
+   exit
+   ```
+After clearing the cache, you can re-run the `GET` request to confirm that the data is retrieved from the database and re-cached as expected.
 
 ---
 
